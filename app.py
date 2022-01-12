@@ -263,32 +263,13 @@ def getImageMessage(originalContentUrl):
 
 
 def replyMessage(payload):
-    response = request.post(https://api.line.me/v2/bot/message/reply,headers=HEADERS)
+    response = request.post("https://api.line.me/v2/bot/message/reply",headers=HEADERS)
     print(response.text)
     return 'OK'
 
-# curl -v -X POST https://api.line.me/v2/bot/message/reply \
-# -H 'Content-Type: application/json' \
-# -H 'Authorization: Bearer {channel access token}' \
-# -d '{
-#     "replyToken":"nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
-#     "messages":[
-#         {
-#             "type":"text",
-#             "text":"Hello, user"
-#         },
-#         {
-#             "type":"text",
-#             "text":"May I help you?"
-#         }
-#     ]
-# }'
-
-
-
 
 def pushMessage(payload):
-    response = request.post(https://api.line.me/v2/bot/message/push,headers=HEADERS)
+    response = request.post("https://api.line.me/v2/bot/message/push",headers=HEADERS)
     print(response.text)
     return 'OK'
 
