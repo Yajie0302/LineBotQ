@@ -235,7 +235,7 @@ def getTaipei101LocationMessag():
     message = dict()
     message["type"] = "location"
     message["title"] = "台北101"
-    message["address"] = "No. 45, Shifu Rd., Xinyi Dist., Taipei City 110051 , Taiwan (R.O.C.)"
+    message["address"] = "No. 45, Shifu Rd., Xinyi Dist., Taipei City , Taiwan (R.O.C.)"
     message["latitude"] = "25.033671"
     message["longitude"] = "121.564427"
     return message
