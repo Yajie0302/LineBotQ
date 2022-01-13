@@ -48,9 +48,10 @@ def index():
                 elif text == "出去玩囉":
                     payload["messages"] = [getPlayStickerMessage()]
                 elif text == "台北101":
-                    payload["messages"] = [getTaipei101ImageMessage(),
-                                           getTaipei101LocationMessage(),
-                                           getMRTVideoMessage()]
+                    payload["messages"] = [getTaipei101ImageMessage()]
+#                                            getTaipei101LocationMessage(),
+#                                            getMRTVideoMessage()]
+
                 elif text == "扣打":
                     payload["messages"] = [
                             {
@@ -259,9 +260,10 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
 
 
 def getImageMessage(originalContentUrl):
-    message = dict("type": "image",
-    "originalContentUrl": "https://raw.githubusercontent.com/Yajie0302/LineBotQ/main/static/taipei_101.jpeg",
-    "previewImageUrl": "https://raw.githubusercontent.com/Yajie0302/LineBotQ/main/static/taipei_101.jpeg")
+    message = dict()
+    message["type"]="image"
+    message["originalContentUrl"]=originalContentUrl
+    message["previewImageUrl"]=originalContentUrl
     return message
 
 
