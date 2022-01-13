@@ -95,6 +95,76 @@ def index():
                               }
                             }
                         ]
+                 elif text == "傳送位置資訊":
+                    payload["messages"] = [
+                            {
+                                "type": "template",
+                                "altText": "This is a buttons template",
+                                "template": {
+                                  "type": "buttons",
+                                  "title": "Menu",
+                                  "text": "Please select",
+                                  "actions": [
+                                      {
+                                        "type": "buttons",
+                                        "label": "是否規劃附近景點",
+                                        "text": "是"
+                                      },
+                                      {
+                                        "type": "message",
+                                        "label": "今日確診人數",
+                                        "text": "今日確診人數"
+                                      },
+                                      {
+                                        "type": "datetimepicker",
+                                        "label": "Select date",
+                                        "data": "storeId=12345",
+                                        "mode": "datetime",
+                                      },
+                                      {                                      
+                                        "type": "datetimepicker",
+                                        "label": "Select date",
+                                        "data": "storeId=12345",
+                                        "mode": "datetime",
+                                      },
+                                      {                                     
+                                        "type": "datetimepicker",
+                                        "label": "Select date",
+                                        "data": "storeId=12345",
+                                        "mode": "datetime",
+                                      }
+                                  ]
+                              }
+                            }
+                        ]
+                    
+                    
+
+                        
+              
+                        
+                    
+#                                                          },  發送位置資訊/是否規劃附近景點/是/回傳附近景點圖/點擊某個景點圖/
+#                                       {                      1.地理資訊2.影片3.圖片4.是否進行叫車服務? /進行叫車服務輸入時間/預約完成
+#                                         "type": "message",
+#                                         "label": "今日確診人數",    
+#                                         "text": "今日確診人數"
+#                                       },
+#                                       {
+#                                         "type": "uri",
+#                                         "label": "聯絡我",
+#                                         "uri": "tel:0972062449"
+#                                       }
+#                                   ]
+#                               }
+#                             }
+#                 else:
+#                     payload["messages"] = [
+#                             {
+#                                 "type": "text",
+#                                 "text": text
+#                             }
+#                         ]
                 else:
                     payload["messages"] = [
                             {
