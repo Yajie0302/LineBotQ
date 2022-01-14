@@ -96,6 +96,29 @@ def index():
                               }
                             }
                         ]
+                elif text == "開始搜尋":
+                    payload["messages"] = [
+                        {
+                            "type": "template",
+                            "altText": "This is a buttons template",
+                            "template": {
+                                "type": "buttons",
+                                "title": "傳送當前位置資訊嗎?",
+                                "text": "請選擇",
+                                "actions": [
+                                    {
+                                        "type": "location",
+                                        "label": "傳送"
+                                    },
+                                    {
+                                        "type": "message",
+                                        "label": "不傳送",
+                                        "text": "不傳送"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
                 else:
                     payload["messages"] = [
                             {
@@ -130,7 +153,7 @@ def index():
                     del data["action"]
                     payload["messages"] = [getTaipei101ImageMessage(),
                                            getTaipei101LocationMessage(),
-                                           getMRTVideoMessage(),
+#                                            getMRTVideoMessage(),
                                            getCallCarMessage(data)]
                 replyMessage(payload)
 
