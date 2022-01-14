@@ -232,7 +232,8 @@ def getCarouselMessage(data):
                 "action": {
                   "type": "postback",
                   "label": "台北101",
-                  "data": json.dumps(data)
+                  "data": json.dumps({"title": "台北101", "action": "get_detail"}),
+                  "text": "台北101"
                 }
               },
               {
@@ -240,7 +241,8 @@ def getCarouselMessage(data):
                 "action": {
                   "type": "postback",
                   "label": "台北101",
-                  "data": json.dumps(data)
+                  "data": json.dumps({"title": "台北101", "action": "get_detail"}),
+                  "text": "台北101"
                 }
               }
           ]
