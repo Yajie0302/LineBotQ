@@ -237,13 +237,31 @@ def getCarouselMessage(data):
                 }
               },
               {
-                "imageUrl": F"{end_point}/static/taipei_1.jpeg",
+                "imageUrl": F"{end_point}/static/xintiantemple.jpg",
                 "action": {
                   "type": "postback",
-                  "label": "台北101",
-                  "data": json.dumps({"title": "台北101", "action": "get_detail"}),
-                  "text": "台北101"
+                  "label": "行天宮",
+                  "data": json.dumps({"title": "行天宮", "action": "get_detail"}),
+                  "text": "行天宮"
                 }
+              },
+              {
+                "imageUrl": F"{end_point}/static/gugong.jpg",
+                "action": {
+                  "type": "postback",
+                  "label": "故宮",
+                  "data": json.dumps({"title": "故宮", "action": "get_detail"}),
+                  "text": "故宮"
+                }
+              },
+              {
+                  "imageUrl": F"{end_point}/static/zhongzheng.jpg",
+                  "action": {
+                      "type": "postback",
+                      "label": "中正紀念堂",
+                      "data": json.dumps({"title": "中正紀念堂", "action": "get_detail"}),
+                      "text": "中正紀念堂"
+                  }
               }
           ]
     }
