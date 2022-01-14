@@ -49,6 +49,7 @@ def index():
                     payload["messages"] = [getPlayStickerMessage()]
                 elif text == "台北101":
                     payload["messages"] = [getTaipei101ImageMessage(),
+#                                            getMRTSoundMessage(),
                                            getTaipei101LocationMessage(),
                                            getMRTVideoMessage()]
 
@@ -137,31 +138,6 @@ def index():
                               }
                             }
                         ]
-                    
-
-                    
-#                                                          },  發送位置資訊/是否規劃附近景點/是/回傳附近景點圖/點擊某個景點圖/
-#                                       {                      1.地理資訊2.影片3.圖片4.是否進行叫車服務? /進行叫車服務輸入時間/預約完成
-#                                         "type": "message",
-#                                         "label": "今日確診人數",    
-#                                         "text": "今日確診人數"
-#                                       },
-#                                       {
-#                                         "type": "uri",
-#                                         "label": "聯絡我",
-#                                         "uri": "tel:0972062449"
-#                                       }
-#                                   ]
-#                               }
-#                             }
-#                 else:
-#                     payload["messages"] = [
-#                             {
-#                                 "type": "text",
-#                                 "text": text
-#                             }
-#                         ]
-
                 else:
                     payload["messages"] = [
                             {
@@ -231,6 +207,13 @@ def pretty_echo(event):
 def sendTextMessageToMe():
     body = request.json
     payload = {
+        "to": my_line_id,
+        "messages": [
+            {
+                "type": "text",
+                "text": body["text"]
+            }
+        ]
     }
     pushMessage(payload)
     return 'OK'
@@ -263,7 +246,22 @@ def getCarouselMessage(data):
     message["template"] = {
           "type": "image_carousel",
           "columns": [
-
+              {
+                "imageUrl": F"{end_point}/static/taipei_101.jpeg",
+                "action": {
+                  "type": "postback",
+                  "label": "台北101",
+                  "data": json.dumps(data)
+                }
+              },
+              {
+                "imageUrl": F"{end_point}/static/taipei_1.jpeg",
+                "action": {
+                  "type": "postback",
+                  "label": "台北101",
+                  "data": json.dumps(data)
+                }
+              }
           ]
     }
     return message
@@ -275,7 +273,21 @@ def getLocationConfirmMessage(title, latitude, longitude):
     message["altText"] = "this is a confirm template"
     data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
     message["template"] = {
-
+          "type": "confirm",
+          "text": F"您是否確定搜尋{title}附近景點？",
+          "actions": [
+                    {
+                       "type": "postback",
+                       "label": "是",
+                       "data": json.dumps(data),
+                       "text": "是"
+                      },
+                    {
+                        "type": "message",
+                        "label": "否",
+                        "text": "否"
+                      }
+          ]
     }
     return message
 
@@ -285,7 +297,15 @@ def getCallCarMessage(data):
     message["type"] = "template"
     message["altText"] = "this is a confirm template"
     message["template"] = {
-
+                       "type": "buttons",
+                       "text":F"請選擇至{data['title']}預約叫車時間",
+                       "actions": [{
+                           "type": "datetimepicker",
+                           "label": "預約",
+                           "data": json.dumps(data),
+                           "mode": "datetime"
+                           }
+                       ]
                       }
     return message
 
