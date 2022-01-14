@@ -96,48 +96,6 @@ def index():
                               }
                             }
                         ]
-                 elif text == "傳送位置資訊":
-                    payload["messages"] = [
-                            {
-                                "type": "template",
-                                "altText": "This is a buttons template",
-                                "template": {
-                                  "type": "buttons",
-                                  "title": "Menu",
-                                  "text": "Please select",
-                                  "actions": [
-                                      {
-                                        "type": "buttons",
-                                        "label": "是否規劃附近景點",
-                                        "text": "是"
-                                      },
-                                      {
-                                        "type": "message",
-                                        "label": "今日確診人數",
-                                        "text": "今日確診人數"
-                                      },
-                                      {
-                                        "type": "datetimepicker",
-                                        "label": "Select date",
-                                        "data": "storeId=12345",
-                                        "mode": "datetime",
-                                      },
-                                      {                                      
-                                        "type": "datetimepicker",
-                                        "label": "Select date",
-                                        "data": "storeId=12345",
-                                        "mode": "datetime",
-                                      },
-                                      {                                     
-                                        "type": "datetimepicker",
-                                        "label": "Select date",
-                                        "data": "storeId=12345",
-                                        "mode": "datetime",
-                                      }
-                                  ]
-                              }
-                            }
-                        ]
                 else:
                     payload["messages"] = [
                             {
